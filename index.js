@@ -3,6 +3,8 @@ const config = require(`./botconfig/config.json`);
 const settings = require(`./botconfig/settings.json`);
 const colors = require("colors");
 const autoResponder = require("./handlers/autoResponder");
+require("dotenv").config();
+const prefix = process.env.PREFIX;
 const client = new Discord.Client({
   //fetchAllMembers: false,
   //restTimeOffset: 0,
@@ -54,7 +56,7 @@ function requireHandlers() {
 module.exports.requireHandlers = requireHandlers;
 //Start the Bot
 requireHandlers();
-client.login(config.token);
+client.login();
 
 /**
  * @INFO
